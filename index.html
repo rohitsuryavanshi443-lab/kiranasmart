@@ -1,0 +1,53 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+
+    <title>KiranaSmart — Expiry Reminders</title>
+
+    <link rel="manifest" href="manifest.webmanifest">
+    <link rel="stylesheet" href="style.css">
+
+    <script src="firebase-config.js"></script>
+    <script src="script.js" defer></script>
+</head>
+
+<body>
+
+    <header>
+        <div>
+            <h1>KiranaSmart</h1>
+            <div id="subtitle" class="sub"></div>
+        </div>
+
+        <div class="header-actions">
+            <button class="s sm" onclick="openGuide()">
+                (?) <span id="guideLabel">Guide</span>
+            </button>
+
+            <select id="lg" onchange="S.lang=this.value;save();render();if(guideOpen)renderGuide()" aria-label="Language">
+                <option value="en">English</option>
+                <option value="hi">हिन्दी</option>
+                <option value="kn">ಕನ್ನಡ</option>
+            </select>
+        </div>
+    </header>
+
+    <main id="main" tabindex="-1"></main>
+
+    <nav id="nav"></nav>
+
+    <div id="toast" role="status" aria-live="polite"></div>
+
+    <div id="modal" aria-hidden="true">
+        <div id="mbox" role="dialog" aria-modal="true"></div>
+    </div>
+
+    <canvas id="confetti" aria-hidden="true"></canvas>
+
+    <div id="onboarding" class="onboarding" hidden></div>
+
+</body>
+</html>
